@@ -3,6 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import {Clock2, Counter} from './hook';
+import {Calculator} from "./lifting-state-up";
+import {WelcomeDialog} from "./composition-vs-inheritance";
+import {FilterableProductTable, IProductCategory} from "./thinking-in-react";
+import {Weather, WeatherHook} from "./api-data";
 
 interface IUser {
     firstName: string;
@@ -433,8 +437,29 @@ const RefNameForm = () => {
     )
 }
 
+const data = [
+    {
+        category: "Sporting Goods",
+        products:[
+            {price: "$49.99", stocked: true, name: "Football"},
+            {price: "$9.99", stocked: true, name: "Baseball"},
+            {price: "$29.99", stocked: false, name: "Basketball"},
+        ],
+    },
+    {
+        category: "Electronics",
+        products:[
+            {price: "$99.99", stocked: true, name: "iPod Touch"},
+            {price: "$399.99", stocked: false, name: "iPhone 5"},
+            {price: "$199.99", stocked: true, name: "Nexus 7"},
+        ],
+    },
+];
+
 ReactDOM.render(
-    <RefNameForm/>,
+    // <Calculator  scale={'c'} temperature={'100'}/>,
+    // <FilterableProductTable categories={data}/>,
+    <WeatherHook/>,
     document.getElementById('root')
 );
 
